@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #ededed;
+}
+
+nav {
+    background-color: black;
+    color: white;
+    padding: 5px 3px;
+}
+
+nav h1 {
+    text-shadow: 2px 2px 5px red;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 15px;
+    gap: 3rem;
+    align-items: center;
+}
+
+nav ul li {
+    display: flex;
+    justify-content: center;
+}
+
+nav input {
+    width: 150px;
+    padding: 3px 5px;
+    border-radius: 10px;
+}
+
+.aside-left aside {
+    background-color: white;
+    width: 20%;
+}
+
+.aside-left aside .Task {
+    margin-left: 20px;
+    margin-top: 20px;
+}
