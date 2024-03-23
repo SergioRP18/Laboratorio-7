@@ -2,33 +2,43 @@
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
 }
 
 body {
-    background-color: #ededed;
+    background-color: #f8f7f7;
 }
 
 nav {
     background-color: black;
+    box-shadow: 0px 3px 3px #c8c8c8;
     color: white;
     padding: 5px 3px;
+    z-index: 1;
 }
 
 nav h1 {
     text-shadow: 2px 2px 5px red;
 }
 
+h2 {
+    font-size: 18px;
+    align-items: center;
+
+}
+
+
 nav ul {
     display: flex;
     list-style: none;
     margin: 15px;
     gap: 3rem;
-    align-items: center;
+    justify-content: space-between;
+    align-items: center ;
 }
 
 nav ul li {
     display: flex;
-    justify-content: center;
 }
 
 nav input {
@@ -37,12 +47,52 @@ nav input {
     border-radius: 10px;
 }
 
-.aside-left aside {
-    background-color: white;
-    width: 20%;
+.aside-left {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
 }
 
-.aside-left aside .Task {
-    margin-left: 20px;
-    margin-top: 20px;
+.aside-left .Task {
+    width: 30%;
+    border: 1px solid #dddada;
+    box-shadow: 0.5px 1px 5px 5px #ededed;
+    margin: 10px 0;
+    border-radius: 20px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.Task span {
+    width: 90%;
+    max-width: 90%;
+    margin-right: 5%;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.checkbox {
+    appearance: none;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNMTIgMjJDNi40NzcgMjIgMiAxNy41MjMgMiAxMlM2LjQ3NyAyIDEyIDJzMTAgNC40NzcgMTAgMTBzLTQuNDc3IDEwLTEwIDEwbTAtMmE4IDggMCAxIDAgMC0xNmE4IDggMCAwIDAgMCAxNiIvPjwvc3ZnPg==");
+    box-shadow: 0.5px 1px 5px 5px #ededed;
+    width: 18px;
+    height: 18px;
+    border-radius: 9px;
+}
+
+.task-done {
+    color: #c8c8c8;
+    text-decoration: line-through;
+}
+
+.checkbox:checked {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjODRmMWIzIiBkPSJNMTIgMjJDNi40NzcgMjIgMiAxNy41MjMgMiAxMlM2LjQ3NyAyIDEyIDJzMTAgNC40NzcgMTAgMTBzLTQuNDc3IDEwLTEwIDEwbS0uOTk3LTZsNy4wNy03LjA3MWwtMS40MTMtMS40MTRsLTUuNjU3IDUuNjU3bC0yLjgyOS0yLjgyOWwtMS40MTQgMS40MTR6Ii8+PC9zdmc+");
+    box-shadow: 0.5px 1px 5px 5px #ededed;
+    border-radius: 9px;
 }
