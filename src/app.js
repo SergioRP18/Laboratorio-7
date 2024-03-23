@@ -10,7 +10,7 @@ let nameTask9 = "Task 9";
 let nameTask10 = "Task 10";
 
 let statusTask1 = true;
-let statusTask2 = true;
+let statusTask2 = false;
 let statusTask3 = true;
 let statusTask4 = true;
 let statusTask5 = true;
@@ -32,6 +32,22 @@ function init (){
     crearTarea(8,nameTask8, statusTask8);
     crearTarea(9,nameTask9, statusTask9);
     crearTarea(10,nameTask10, statusTask10);
+
+
+    actualizarSpanTareasCompletadas();
+    actualizarSpanTareasPendientes();
+}
+
+function actualizarSpanTareasCompletadas(){
+    let tareasCompletadas = calcularTaskCompletadas();
+    const taskCompletadasSpan = document.getElementById("task-completadas");
+    taskCompletadasSpan.innerText = tareasCompletadas.toString();
+}
+
+function actualizarSpanTareasPendientes(){
+    let tareasPendientes = calcularTaskPendientes();
+    const taskPendientesSpan = document.getElementById("task-pendientes");
+    taskPendientesSpan.innerText = tareasPendientes.toString();
 }
 
 
@@ -41,7 +57,7 @@ function crearTarea (idTask, nameTask, statusTask){
     task1.setAttribute("class", "Task");
     const task1Span = document.createElement("span");
     if(statusTask!==false){
-        task1Span.setAttribute("class", "task-done")
+        task1Span.setAttribute("class", "task-done");
     }
     task1Span.setAttribute("id", "span" + idTask);
     const taskNameNode = document.createTextNode(nameTask);
@@ -49,7 +65,9 @@ function crearTarea (idTask, nameTask, statusTask){
     const task1Check = document.createElement("input");
     task1Check.setAttribute("class", "checkbox");
     task1Check.setAttribute("type", "checkbox");
-    task1Check.setAttribute("checked",statusTask);
+    if(statusTask!==false){
+        task1Check.setAttribute("checked", statusTask);
+    }
     task1Check.setAttribute("id",idTask);
     task1Check.addEventListener("click", onCheckClick);
 
@@ -59,21 +77,87 @@ function crearTarea (idTask, nameTask, statusTask){
 }
 
 function calcularTaskPendientes (){
-    return 0;
+    let contadorTareasPendientes = 0;
+    if(statusTask1 === false){
+        contadorTareasPendientes++;
+    }
+    if(statusTask2 === false){
+        contadorTareasPendientes++;
+    }
+    if(statusTask3 === false){
+        contadorTareasPendientes++;
+    }
+    if(statusTask4 === false){
+        contadorTareasPendientes++;
+    }
+    if(statusTask5 === false){
+        contadorTareasPendientes++;
+    }
+    if(statusTask6 === false){
+        contadorTareasPendientes++;
+    }
+    if(statusTask7 === false){
+        contadorTareasPendientes++;
+    }
+    if(statusTask8 === false){
+        contadorTareasPendientes++;
+    }
+    if(statusTask9 === false){
+        contadorTareasPendientes++;
+    }
+    if(statusTask10 === false){
+        contadorTareasPendientes++;
+    }
+    return contadorTareasPendientes;
 } 
 
 function calcularTaskCompletadas (){
-    return 0;
+    let contadorTareasCompletadas = 0;
+    if(statusTask1 === true){
+        contadorTareasCompletadas++;
+    } 
+    if(statusTask2 === true){
+        contadorTareasCompletadas++;
+    }
+    if(statusTask3 === true){
+        contadorTareasCompletadas++;
+    }
+    if(statusTask4 === true){
+        contadorTareasCompletadas++;
+    }
+    if(statusTask5 === true){
+        contadorTareasCompletadas++;
+    }
+    if(statusTask6 === true){
+        contadorTareasCompletadas++;
+    }
+    if(statusTask7 === true){
+        contadorTareasCompletadas++;
+    }
+    if(statusTask8 === true){
+        contadorTareasCompletadas++;
+    }
+    if(statusTask9 === true){
+        contadorTareasCompletadas++;
+    }
+    if(statusTask10 === true){
+        contadorTareasCompletadas++;
+    }
+    return contadorTareasCompletadas;
 }
 
 function onCheckClick(e) {
     const taskCheck = e.target;
     
     let nuevoCheck = false;
-    if (taskCheck.getAttribute("checked") === "false") {
+    if (taskCheck.getAttribute("checked") === null) {
         nuevoCheck = true;
     }
-    taskCheck.setAttribute("checked", nuevoCheck);
+    if(nuevoCheck === true){
+        taskCheck.setAttribute("checked", nuevoCheck);
+    } else{
+        taskCheck.removeAttribute("checked");
+    }
 
     const taskId = taskCheck.getAttribute("id");
     const taskSpan = document.getElementById("span"+ taskId);
@@ -86,18 +170,21 @@ function onCheckClick(e) {
     } else if (taskId === '3') {
         statusTask3 = nuevoCheck;
     } else if (taskId === '4') {
-        statusTask3 = nuevoCheck;
+        statusTask4 = nuevoCheck;
     } else if (taskId === '5') {
-        statusTask3 = nuevoCheck;
+        statusTask5 = nuevoCheck;
     } else if (taskId === '6') {
-        statusTask3 = nuevoCheck;
+        statusTask6 = nuevoCheck;
     } else if (taskId === '7') {
-        statusTask3 = nuevoCheck;
+        statusTask7 = nuevoCheck;
     } else if (taskId === '8') {
-        statusTask3 = nuevoCheck;
+        statusTask8 = nuevoCheck;
     } else if (taskId === '9') {
-        statusTask3 = nuevoCheck;
+        statusTask9 = nuevoCheck;
     } else if (taskId === '10') {
-        statusTask3 = nuevoCheck;
+        statusTask10 = nuevoCheck;
     } 
+
+    actualizarSpanTareasCompletadas();
+    actualizarSpanTareasPendientes();
 }  
