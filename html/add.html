@@ -19,18 +19,17 @@
 
     <form id="formTodo">
         <div class="container">
-        <input type="text" id="todoinput">
+        <input type="text" id="todoinput" placeholder="Escribe la tarea" autofocus>
         <button onclick="guardarTarea()" type="button">Agregar</button>
         </div>
     </form>
 
-    <div class="alerta-container">
     <dialog id="alerta">
-        <p>La tarea se ha agregado exitosamente</p>
-
-        <button onclick="this.parentElement.close()">Cerrar</button>
+        <div class="dialog-content">
+            <p>La tarea se ha agregado exitosamente</p>
+            <button onclick="document.querySelector('#alerta').close()">OK</button>
+        </div>
     </dialog>
-    </div>
 </body>
     <script src="../src/Task.js"></script>
     <script src="../src/add.js"></script>

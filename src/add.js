@@ -33,5 +33,5 @@ function guardarTarea(){
 
 function mostrarAlerta(){
     const alerta = document.getElementById("alerta");
-    alerta.show();
+    alerta.showModal();
 }

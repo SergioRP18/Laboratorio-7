@@ -25,6 +25,8 @@ a:hover {
     justify-content: center;
     margin-top: 50px;
     gap: 1rem;
+    width: 100%;
+    height: auto;
 }
 
 .container input {
@@ -42,8 +44,41 @@ a:hover {
     cursor: pointer;
 }
 
-.alerta-container {
+dialog {
+    left: calc(50% - 150px);
+    top: calc(50% - 49.5px);
+    width: 300px;
+    padding: 8px;
+    box-sizing: content-box;
+    padding-top: 17px;
+    border-radius: 20px;
+    border-color: green;
+}
+
+.dialog-content {
     display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
+    align-content: center;
+    gap: 11px;
+}
+
+.dialog-content p {
+    color: green;
+}
+
+
+dialog button {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    width: 45px;
+    cursor: pointer;
+}
+
+dialog::backdrop {
+    background-color: black;
+    opacity: 50%;
 }
